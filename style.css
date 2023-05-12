@@ -1,0 +1,30 @@
+:root {
+    --border: 1px solid deeppink;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#nav {
+    height: 4rem;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0 0.5rem;
+}
+.nav {
+    border: var(--border);
+    height: 3rem;
+    width: 3rem;
+}
+h1 {
+    color: aliceblue;
+    text-align: center;
+}
+#title {
+    width: 12rem;
+    text-align: center;
+}
