@@ -1,15 +1,29 @@
 :root {
     --border: 1px solid deeppink;
+    --the-red: #f9001e;
+    --the-blue: #047BDB;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    font-family:monospace;
+}
+
 #nav {
+    position: fixed;
+    top: 0;
     height: 4rem;
     width: 100%;
-    background-color: #047BDB;
+    background-color: var(--the-blue);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,6 +38,7 @@ h1 {
     color: aliceblue;
     text-align: center;
 }
+
 #title {
     width: 12rem;
     text-align: center;
@@ -32,38 +47,110 @@ h1 {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 #menuButton {
-border: 1px solid deeppink;
-    height: 2.5rem;
+    height: 2rem;
     width: 2.5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s linear;
 }
-#menuButton:hover #menuLine {
+
+#menuButton:hover {
+    filter: drop-shadow(1px 1px 0 var(--the-red)) drop-shadow(-1px -1px 0 white); 
 }
-#menuLine {
-    position: relative;
+
+#menuButton:hover .menuLine {
+    background-color: var(--the-blue);
+}
+
+.menuLine {
     height: 0.25rem;
     width: 100%;
     background-color: black;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px white;
-}
-#menuLine::before,
-#menuLine::after {
-    content: "";
-    position: absolute;
-    height: 0.25rem;
-    width: 100%;
-    background-color: inherit;
-    border-radius: inherit;
-    box-shadow: inherit;
-}
-#menuLine::before {
-    top: -1rem;
-}
-#menuLine::after {
-    bottom: -1rem;
+    transition: transform 0.2s linear, width 0.2s linear, box-shadow 0.2s linear;
 }
 
+#content {
+    height: 50vh;
+    width: 50vw;
+}
+
+#crane {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-image: url("./img/Crane2.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#constructionBox {
+    position: absolute;
+    top: 13rem;
+    right: -3.5rem;
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    text-align: center;
+    padding-top: 3.75rem;
+    box-shadow: inset 5px 5px 5px rgb(42, 42, 42),
+    inset 10px 10px 10px rgba(255, 255, 255, 0.5),
+    inset -10px -10px 10px black;
+}
+
+#constructionBox:hover {
+    animation: ballHover 0.5s linear infinite;
+}
+
+@keyframes ballHover {
+    0% {
+        box-shadow: inset 5px 5px 5px rgb(42, 42, 42),
+        inset 10px 10px 10px rgba(255, 255, 255, 0.5),
+        inset -10px -10px 10px black, 15px 15px 30px var(--the-red), -15px -15px 30px var(--the-blue);
+    }
+    25% {
+        box-shadow: inset 5px 5px 5px rgb(42, 42, 42),
+        inset 10px 10px 10px rgba(255, 255, 255, 0.5),
+        inset -10px -10px 10px black, -15px 15px 30px var(--the-red), 15px -15px 30px var(--the-blue);
+    }
+    50% {
+        box-shadow: inset 5px 5px 5px rgb(42, 42, 42),
+        inset 10px 10px 10px rgba(255, 255, 255, 0.5),
+        inset -10px -10px 10px black, -15px -15px 30px var(--the-red), 15px 15px 30px var(--the-blue);
+    }
+    75% {
+        box-shadow: inset 5px 5px 5px rgb(42, 42, 42),
+        inset 10px 10px 10px rgba(255, 255, 255, 0.5),
+        inset -10px -10px 10px black, 15px -15px 30px var(--the-red), -15px 15px 30px var(--the-blue);
+    }
+    100% {
+        box-shadow: inset 5px 5px 5px rgb(42, 42, 42),
+        inset 10px 10px 10px rgba(255, 255, 255, 0.5),
+        inset -10px -10px 10px black, 15px 15px 30px var(--the-red), -15px -15px 30px var(--the-blue);
+    }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--the-red);
+}
+
+#footer p {
+    width: 100%;
+    text-align: center;
+}
