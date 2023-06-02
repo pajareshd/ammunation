@@ -32,14 +32,15 @@ h1 {
     background-size: contain;
     background-repeat: no-repeat;
 }
-#menu {
+#menuButton {
+border: 1px solid deeppink;
     height: 2.5rem;
     width: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#menu:hover #menuLine {
+#menuButton:hover #menuLine {
 }
 #menuLine {
     position: relative;
